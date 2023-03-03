@@ -1,24 +1,25 @@
-#16threeSumClosest
+class Solution:
+    def threeSumClosest(self, nums: list[int], target: int) -> int:
+        s=float('inf')
+        t=len(nums)
+        nums.sort()
+        for x in range(t-2):
+            i=x+1
+            j=t-1
+            while i<j:
+                s1=nums[x]+nums[i]+nums[j]
+                #print(x,i,j,'here')
+                if s1==target:
+                    return target
+                if abs(target-s)>abs(target-s1):
+                    #print(x,i,j,'-------',s1)
+                    s=s1
+                if s1<target:
+                    i+=1
+                else:
+                    j-=1
+        print(s)
 
-# class Solution:
-# 	def threeSumClosest(self, nums: list([int]), target: int) -> int:
-# 		length = len(nums)
-# 		sortedlist = sorted(nums)
-# 		possible_sums = []
-# 		for count, value in enumerate(sortedlist):
-# 			print(count, value)
-# 		# for i in range(sortedlist):
-# 		# 	for j in range(1, sortedlist)
-
-# mysolution = Solution()
-# a69 = mysolution.threeSumClosest([1, 3, 6, 2, 5, 13, 12], 11)
-
-
-malist = [3, 2, 8, 1]
-sortedmalist = sorted(malist)
-# for count, value in enumerate(sortedmalist):
-# 	print(count, value)
-for index, value in enumerate(sortedmalist, start=0):
-	print(index, value)
-for index, value in enumerate(sortedmalist, start=1):
-	print(index, value)
+mysolution = Solution()
+a69 = mysolution.threeSumClosest([1, 2, 4, 1, 21, 4, 8, 5, 1, 9, 7, 8], 22)
+print(a69)
